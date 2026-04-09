@@ -1,0 +1,8 @@
+POST http://localhost:3000/api/persons/add
+Content-Type: application/json
+
+{
+    "name":"ppeson",
+    "number":"66-777-8883"
+
+}
