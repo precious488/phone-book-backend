@@ -13,7 +13,8 @@ mongoose.set('strictQuery', false)
 
 // const url = 'mongodb://localhost:27017/notes'
 
-mongoose.connect(url)
+mongoose
+  .connect(url)
   .then(() => {
     console.log('Connected to MongoDB')
   })
@@ -26,23 +27,21 @@ const personSchema = new mongoose.Schema({
   number: String,
 })
 
-
 const Person = mongoose.model('Person', personSchema)
 
 const person = new Person({
-    name: "Ada Lovelace",
-    number: "040-1231236",
+  name: 'Ada Lovelace',
+  number: '040-1231236',
 })
 
-person.save().then(result => {
+person.save().then((result) => {
   console.log('person saved saved!', result)
-  
 })
 
-Person.find({}).then(result=>{
-    result.forEach(person=>{
-        console.log(person)
-        console.log('result')
-    })
-    mongoose.connection.close()
+Person.find({}).then((result) => {
+  result.forEach((person) => {
+    console.log(person)
+    console.log('result')
+  })
+  mongoose.connection.close()
 })

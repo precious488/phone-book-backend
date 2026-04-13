@@ -65,7 +65,7 @@ app.delete('/api/persons/:id', (req, res, next) => {
   const id = req.params.id
   console.log(id)
   Person.findByIdAndDelete(id)
-    .then((result) => {
+    .then(() => {
       res.status(204).end()
     })
     .catch((error) => next(error))
@@ -117,6 +117,7 @@ app.get('/api/persons/:id', (req, res, next) => {
 app.use(errorHandler)
 
 const PORT = process.env.PORT || 3000
+
 app.listen(PORT, () => {
   console.log(`app is running  on  port ${PORT}`)
 })
